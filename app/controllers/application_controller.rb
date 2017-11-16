@@ -23,22 +23,22 @@ class ApplicationController < ActionController::API
 
 
   def ms_ip(ms)
-    host = ""
+    host = "-"
     case ms
     when "sm" #send mail
-      host += ENV["SANTIAGO"] + "3034"
+      host = ENV["SANTIAGO"] + "3034"
     when "in" #Inbox
-      host += ENV["SANTIAGO"] + "3032"
+      host = ENV["SANTIAGO"] + "3032"
     when "nt" #Notifications
-      host += ENV["SANTIAGO"] + "3033"
+      host = ENV["SANTIAGO"] + "3033"
     when "rg" #Register
-      host += ENV["REG"] + "3034"
+      host = ENV["REG"] + "3034"
     when "ss" #Sessions
-      host += ENV["SESS"] + "3035"
+      host = ENV["SESS"] + "3035"
     when "schs" # programacion
-      host += ENV["PROG"] + "3006"
+      host = ENV["PROG"] + "3006"
     when "ldap" # programacion
-      host += ENV["LDAP"] + "4001"
+      host = ENV["LDAP"] + "4001"
     end
     return host
   end

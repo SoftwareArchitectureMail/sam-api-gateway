@@ -1,0 +1,22 @@
+Started POST "/users/create" for 10.203.135.73 at 2017-11-16 03:54:40 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"Nombres", "last_name"=>"Pruebita", "username"=>"prueba1", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"Nombres", "last_name"=>"Pruebita", "username"=>"prueba1", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 120ms
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/application_controller.rb:35:in `ms_ip'
+app/controllers/users_controller.rb:9:in `create_user'
+Started POST "/users/create" for 10.203.135.73 at 2017-11-16 03:55:00 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"Nombres", "last_name"=>"Pruebita", "username"=>"prueba1", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"Nombres", "last_name"=>"Pruebita", "username"=>"prueba1", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 98ms
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/application_controller.rb:35:in `ms_ip'
+app/controllers/users_controller.rb:9:in `create_user'
