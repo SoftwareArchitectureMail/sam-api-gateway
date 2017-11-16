@@ -10,16 +10,21 @@ skip_before_action :validate_token, only: [:refresh_token, :login]
       if ldap.code == 200
         login = HTTParty.post(ms_ip("rg")+"/users/login", body: { username: params[:username],  password: params[:password]}.to_json,
           :headers => { 'Content-Type' => 'application/json' })
+          puts "REGISTER: #{login.code}"
         if login.code == 200
           device_reg = HTTParty.post(ms_ip("nt")+"/user_devices", body:{
             username: params[:username],
             device_id: params[:device_id]
           }.to_json,
           :headers => { 'Content-Type' => 'application/json' })
+          puts "NOTIFICATIONS: #{device_reg.code}"
           if device_reg.code == 201
+            puts "ANTES DE TOKEN"
             token = HTTParty.get(ms_ip("ss")+"/token/"+params[:username])
+            puts "SESS: #{token.code}"
             render status: token.code, json: append_token_user(token, login)
           else
+            puts "NO TOKEN"
             render json: device_reg.body, status: device_reg.code
           end
         else

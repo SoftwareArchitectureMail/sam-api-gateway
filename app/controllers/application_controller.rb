@@ -26,11 +26,11 @@ class ApplicationController < ActionController::API
     host = "-"
     case ms
     when "sm" #send mail
-      host = ENV["SANTIAGO"] + "3034"
+      host = ENV["SANTIAGO"] + "3031"
     when "in" #Inbox
       host = ENV["SANTIAGO"] + "3032"
     when "nt" #Notifications
-      host = ENV["SANTIAGO"] + "3033"
+      host = ENV["SANTIAGO"] + "3034"
     when "rg" #Register
       host = ENV["REG"] + "3034"
     when "ss" #Sessions
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::API
     when "ldap" # programacion
       host = ENV["LDAP"] + "4001"
     end
-    return host
+    return host.gsub!('"', '')
   end
 
 end
