@@ -24,17 +24,20 @@ class ApplicationController < ActionController::API
 
   def ms_ip(ms)
     host = "http://192.168.99.101:"
+    hostr = "http://192.168.99.102:"
+    hosts = "http://192.168.99.103:"
+    host2 = "http://168.176.38.67:"
     case ms
     when "sm" #send mail
-      host += "3001"
+      host2 += "3034"
     when "in" #Inbox
-      host += "3002"
+      host2 += "3032"
     when "nt" #Notifications
-      host += "3003"
+      host2 += "3033"
     when "rg" #Register
-      host += "3004"
+      hostr += "3034"
     when "ss" #Sessions
-      host += "3005"
+      hosts += "3035"
     when "schs" # programacion
       host += "3006"
     when "ldap" # programacion
